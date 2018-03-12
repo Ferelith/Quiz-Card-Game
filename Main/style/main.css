@@ -1,0 +1,201 @@
+/*
+    Author: Artur Partyka
+    Description: Main style sheet for the document
+    Document name: main.css
+    Date: 6/3/2015 (6th March 2015)
+*/
+
+body {
+    background-image: url("../images/bg.jpg");
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif; 
+}
+
+p { margin: 0; }
+
+.scoreQuestion {
+    margin-top: 4px;
+}
+.scoreboardContainer { 
+    position: absolute;
+    right: 10; 
+    top: 0;
+    bottom:0;
+    box-shadow: 0px 0px 20px #000;
+    margin: auto;
+    overflow: hidden;
+}
+
+#scoreboardContent {
+    display: block;
+
+    background: url("../images/scoreboard.jpg");
+    color: #FFF;
+
+    background-size: contain;
+    overflow-y: scroll;
+    padding: 4px;
+
+}
+
+.card_container {
+    position: relative;
+    margin: 10px;
+    z-index : 1;
+    float: left;
+}
+
+#container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.answerButton {
+    -webkit-appearance: button;
+    display: inline-block;
+    white-space: normal;
+
+    width: 90%;
+    height: 30px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.hidden { visibility: hidden; } 
+
+.card_container {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+.cardImage {
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    height: 100%; 
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+    visibility: visible;;
+}
+
+.card_container.active .card {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.top {
+    top: 0;
+}
+
+.bottom {
+    top: 10;
+}
+
+.face.back {
+    display: block;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    color: #000;
+    text-align: center;
+    background-color: #EFEFEF;
+}
+
+.settingsDock {
+    position:absolute;
+    top: 0;
+    left: 10;
+    height: 35px;
+    background: rgba(244, 244, 244, 0.2);
+    box-shadow: 0px 0px 10px 10px rgba(244,244,244,0.2);
+}
+
+.Button {
+    width: 30px;
+    height: 30px;
+    margin: 5px 0px 5px 0px;
+    display: inline-block;
+
+    background-size: 30px 30px;
+    background-repeat: no-repeat;}
+#settingsButton {
+
+    background-image: url("../images/settingsIcon.png");
+}
+
+#homeButton {
+    background-image: url("../images/homeIcon.png");
+}
+#reloadButton {
+    background-image: url("../images/reloadIcon.png");
+}
+#settingsPanel {
+    padding: 4px;
+    background: rgba(2,2,2,0.3);
+
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    border: 1px solid black;
+
+    color: #fff;
+    display: none;
+}
+
+form {
+    margin: 0 0 0 0;
+}
+
+.themeCard {
+    background-position: center;
+}
+
+#card1 {
+    background-image: url("../images/card.jpg");
+}
+
+#card2 {
+    background-image: url("../images/card2.jpg");
+}
+
+#card3 {
+    background-image: url("../images/card3.jpg");
+}
+
+.resultsPage {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.6);
+    position: absolute;
+
+    display: none;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow-y: scroll;
+    white-space: normal;
+    z-index: 9999;
+}
+
+.results {
+    color: #fff;
+    margin: 0;
+}

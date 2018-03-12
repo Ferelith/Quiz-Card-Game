@@ -1,0 +1,51 @@
+/*
+    Author: Artur Partyka
+    Description: Styles for large screens
+    Document name: 1920p.css
+    Date: 6/3/2015 (6th March 2015)
+*/
+
+.scoreboard h1 { margin: 0px; font-size: 20px; color: #FFF; text-align: center; }
+.scoreboard h3 { margin: 0px; font-size: 18px;}
+.scoreboard p { margin: 4px 0px 0px 4px; text-align: left; font-size: 15px;}
+
+.scoreboardContainer { 
+    width: 300px;
+    height: 500px;
+}
+
+#scoreboardContent {
+    width: 300px;
+    height: 500px;
+}
+
+.card_container {
+    width: calc(225px * 1.35);
+    height: calc(321px * 1.35);
+}
+
+#container {
+    height: 400px;
+    width: 1300px;
+}
+
+.face.back {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+}
+
+.themeCard {
+    width: 100px;
+    height: 100px;
+
+    background-position: center;
+}
+
+.resultsPage {
+    width: auto;
+    height: auto;
+}

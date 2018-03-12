@@ -1,0 +1,110 @@
+﻿<html>
+	<head>
+		<title>E-EMPORIO - Mobile</title>
+		<link rel="Stylesheet" href="style/main.css" type="text/css" media"screen"/>
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
+		
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="../script/questions.js"></script>
+		<script src="script/addQuestions.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				var ratio = window.devicePixelRatio || 1;
+				var w = screen.width * ratio;
+				var h = screen.height * ratio;
+				
+				
+				
+				if((screen.width) > (screen.height)) {
+					 if(h == 320 &&  w == 480) {
+					$("#questionCard").addClass("portrait");
+
+					$("#answerCard").addClass("offScreenPortrait");
+					 } else {
+					$("#questionCard").addClass("portrait");
+
+					$("#answerCard").addClass("offScreenPortrait");
+					}
+
+					$(document).ready(function(){
+						if((screen.width) > (screen.height)) {
+							swipePortrait();
+						} 
+					});
+				} else {
+					$("#questionCard").addClass("portrait");
+					$("#answerCard").addClass("offScreenPortrait");
+					$(document).ready(function(){
+					if((screen.width) < (screen.height)) {
+						swipePortrait();
+					}
+					});
+				}
+				
+			});
+			function swipePortrait() {
+				$("#questionCard").on('swiperight', function() {
+					$(function() {
+						$("#questionCard").animate({'margin-right': '-=100%'}, 400);
+						$("#answerCard").animate({ 'margin-right': '-=90%'}, 400);
+
+					});
+				});
+
+				$("#answerCard").on('swipeleft', function() {
+					$("#questionCard").animate({'margin-right': '+=100%'}, 400);
+					$("#answerCard").animate({ 'margin-right': '+=90%'}, 400);
+				});
+			}
+
+			$(window).resize(function(){
+				var h = $(window).height();
+				var w = $(window).width();
+				
+			
+				if((screen.width) > (screen.height)) {
+					 if(h == 320 &&  w == 480) {
+						
+						
+						$("#questionCard").addClass("landscape");
+						$("#answerCard").addClass("offScreenLandscape");
+					} else {
+							
+						
+						$("#questionCard").addClass("portrait");
+						$("#answerCard").addClass("offScreenPortrait");
+					}
+
+				} else if((screen.width) < (screen.height)) {
+					 if(h == 320 &&  w == 480) {
+						$("#questionCard").addClass("portrait");
+						$("#answerCard").addClass("offScreenPortrait");	
+					} else {
+						
+						
+						$("#questionCard").addClass("portrait");
+						$("#answerCard").addClass("offScreenPortrait");	
+
+					}
+					
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="questionCardContainer" class="cardDIV">
+				<img id="questionCard" class="card" src="images/card.jpg"></img>
+			</div>
+			<div id="answerCardContainer" class="cardDIV">
+				<img id="answerCard" class="card card1" src="images/card.jpg"></img>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		addQuestions();
+	</script>
+</html>

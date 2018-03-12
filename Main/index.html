@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>	
+
+		<script src="script/questions.js"></script>
+		<script src="script/logic.js"></script>
+		<script src="script/settingsMenu.js"></script>
+		<script src="script/cardSelector.js"></script>
+		<script src="script/answers.js"></script>
+
+
+		<link rel="stylesheet" type="text/css" href="style/main.css">
+		<link rel="stylesheet" media="screen and (max-width: 1366px)" href="style/720p.css">
+		<link rel="stylesheet" media="screen and (max-width: 2000px) and (min-width: 1367px)" href="style/1920p.css">
+
+		<script> function restartGame() { location.reload(true); } </script>
+
+		<title>E-Emporio Exports Game</title>
+	</head>
+	<body>
+		<div id="container">
+			<div class="resultsPage">
+				<h1 class="results">Results</h1>	
+				<input type="button" id="printButton" onClick="downloadInnerHtml()" value="Download Results"/>
+				<input type="button" id="replayButton" onClick="restartGame();" value="Restart the game"/>
+				<div class="results" id="resultsContainer">
+
+				</div>
+			</div>
+		</div>
+
+		<div class="scoreboardContainer">
+			<div id="scoreboardContent" class="scoreboard">
+				<br />
+			</div>
+		</div>
+
+
+		<div class="settingsDock">
+			<a href="http://www.e-emporioexports.eu/" id="homeButton" class="Button">
+			</a>
+			<div id="settingsButton" class="Button">
+			</div>
+			<div id="reloadButton" class="Button">
+			</div>
+		</div>
+		<div id="settingsPanel">
+			<p>Card Theme</p>
+			<form id="cardType">
+				<label>
+				<input type="radio" name="cardSelector" id="card_select_1" value="1">Card 1</input>
+				<div id="card1" class="themeCard"></div>
+				</label>
+				<br />
+				<label>
+				<input type="radio" name="cardSelector" id="card_select_2" value="2">Card 2</input>
+				<div id="card2" class="themeCard"></div>
+				</label>
+				<br />
+				<label>
+				<input type="radio" name="cardSelector" id="card_select_3" value="3">Card 3</input>
+				<div id="card3" class="themeCard"></div>
+				</label>
+			</form>
+		</div>
+	</body>
+</html>

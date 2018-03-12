@@ -1,0 +1,139 @@
+﻿<html>
+	<head>
+		<title>E-EMPORIO - Mobile</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="style/main.css" type="text/css" media="only screen and (min-width:481px) and (max-width:1024px)" />
+		<link rel="stylesheet" href="style/main.css" type="text/css" media="only screen and (max-width:480px)" />
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				var ratio = window.devicePixelRatio || 1;
+				var w = screen.width * ratio;
+				var h = screen.height * ratio;
+
+				if((screen.width) > (screen.height)) {
+					 if(h == 320 &&  w == 480) {
+						$("#questionCard").addClass("landscape");
+						$("#questionCard").removeClass("portrait");
+
+						$("#answerCard").removeClass("offScreenPortrait");
+						$("#answerCard").addClass("offScreenLandscape");	
+					 } else {
+						$("#questionCard").addClass("landscape");
+						$("#questionCard").removeClass("portrait");
+
+						$("#answerCard").removeClass("offScreenPortrait");
+						$("#answerCard").addClass("offScreenLandscape");
+					}
+
+					$(document).ready(function(){
+						if((screen.width) > (screen.height)) {
+							swipeLandscape();
+						} 
+					});
+				} else {
+					$("#questionCard").addClass("portrait");
+					$("#questionCard").removeClass("landscape");
+
+					$("#answerCard").addClass("offScreenPortrait");
+					$("#answerCard").removeClass("offScreenLandscape");
+
+					$(document).ready(function(){
+					if((screen.width) < (screen.height)) {
+						swipePortrait();
+					}
+					});
+				}
+				
+			});
+
+			function swipeLandscape() {
+				$("#questionCard").on('swiperight', function() {
+					$(function() {
+						$("#questionCard").animate({'margin-right': '-=100%', 'width': '30%'}, 400);
+						$("#answerCard").animate({ 'width': '60%', 'margin-right': '-=100%'}, 400);
+					
+					});
+					
+				});
+
+				$("#answerCard").on('swipeleft', function() {
+					$("#questionCard").animate({'margin-right': '+=100%', 'width': '60%'}, 400);
+					$("#answerCard").animate({ 'width': '30%', 'margin-right': '+=100%'}, 400);
+				});
+			}
+
+			function swipePortrait() {
+				$("#questionCard").on('swiperight', function() {
+					$(function() {
+						$("#questionCard").animate({'margin-right': '-=100%', 'width': '80%'}, 400);
+						$("#answerCard").animate({ 'width': '90%', 'margin-right': '-=100%'}, 400);
+
+					});
+				});
+
+				$("#answerCard").on('swipeleft', function() {
+					$("#questionCard").animate({'margin-right': '+=100%', 'width': '90%'}, 400);
+					$("#answerCard").animate({ 'width': '80%', 'margin-right': '+=100%'}, 400);
+				});
+			}
+
+			$(window).resize(function(){
+				var h = $(window).height();
+				var w = $(window).width();
+				
+			
+				if((screen.width) > (screen.height)) {
+					 if(h == 320 &&  w == 480) {
+						$("#answerCard").removeClass("offScreenPortrait");
+					 	$("#questionCard").removeClass("portrait");
+						$("questionCard").removeClass("landscape");
+						$("#answerCard").removeClass("offScreenLandscape");
+						
+						$("#questionCard").addClass("landscape");
+						$("#answerCard").addClass("offScreenLandscape");
+					} else {
+						$("#questionCard").removeClass("portrait");
+						$("#answerCard").removeClass("offScreenPortrait");
+						$("#questionCard").removeClass("portrait");
+						$("#answerCard").removeClass("offScreenLandscape");
+						
+						$("#questionCard").addClass("landscape");
+						$("#answerCard").addClass("offScreenLandscape");
+					}
+
+				} else if((screen.width) < (screen.height)) {
+					 if(h == 320 &&  w == 480) {
+						$("#questionCard").removeClass("landscape");
+						$("#answerCard").removeClass("offScreenLandscape");
+						$("#questionCard").removeClass("portrait");
+						$("#answerCard").removeClass("offScreenPortrait");
+						
+						$("#questionCard").addClass("landscape");
+						$("#answerCard").addClass("offScreenLandscape");
+						
+					} else {
+						$("#questionCard").removeClass("portrait");
+						$("#answerCard").removeClass("offScreenPortrait");
+						$("#questionCard").removeClass("landscape");
+						$("#answerCard").removeClass("offScreenLandscape");	
+						
+						$("#questionCard").addClass("portrait");
+						$("#answerCard").addClass("offScreenPortrait");	
+					}
+					
+				}
+			});
+
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<img id="rotate" src="images/rotate.png"></img>
+			<img id="questionCard" class="card" src="images/card.jpg"></img>
+			<img id="answerCard" class="card" src="images/card.jpg"></img>
+		</div>
+	</body>
+</html>
